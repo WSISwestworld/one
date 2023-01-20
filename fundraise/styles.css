@@ -1,0 +1,148 @@
+/*Styles about Body*/
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: rgb(193, 255, 250);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+/*header*/
+.header {
+  background-color: #ffffff;
+  padding: 11.5px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #69c8ff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #0dbaff;
+  color: rgb(255, 255, 255);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #2ad4ff;
+}
+
+.container {
+  padding-left: 31%;
+  padding-right: 31%;
+}
+
+.content {
+  padding: 65px;
+}
+
+/*stickey pane*/
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky+.content {
+  padding-top: 60px;
+}
+
+/*Styles about Navigation Bar*/
+.navbar {
+  overflow: hidden;
+  background-color: #187efa;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/*Styles about Dropdown Menus*/
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/*Styles about Help Dropdown Menu*/
+.dropdown .help {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover,
+.dropdown:hover .help {
+  background-color: #2872cb;
+}
+
+/*Styles about Dropdown Menu Contents*/
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #2872cb;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #0c4a95;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*User icon and uasername*/
+.username {
+  float: right;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.user_log {
+  margin-left: 90%;
+  margin-right: auto;
+  margin-top: 3px;
+}
