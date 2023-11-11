@@ -4,9 +4,11 @@ include "db_conn.php";
 
 $sql_water_supply_issue = "SELECT * FROM `waterSupplyIssue`";
 $sql_project = "SELECT * FROM `project` WHERE `ProjectStatus` = 'Ongoing' OR `ProjectStatus` = 'Completed'";
+$sql_fundraise = "SELECT * FROM `fundRaise`";
 
 $issues_result = $server_conn->query($sql_water_supply_issue);
 $project_result = $server_conn->query($sql_project);
+$fundraise_result = $server_conn->query($sql_fundraise);
 
 ?>
 
@@ -81,25 +83,25 @@ $project_result = $server_conn->query($sql_project);
 
                         ?>
 
-                    <tr>
+                        <tr>
 
-                        <td>
-                            <?php echo $row1['IssueType']; ?>
-                        </td>
+                            <td>
+                                <?php echo $row1['IssueType']; ?>
+                            </td>
 
-                        <td>
-                            <?php echo $row1['District']; ?>
-                        </td>
+                            <td>
+                                <?php echo $row1['District']; ?>
+                            </td>
 
-                        <td>
-                            <?php echo $row1['Description']; ?>
-                        </td>
+                            <td>
+                                <?php echo $row1['Description']; ?>
+                            </td>
 
-                        <td>
-                            <?php echo $row1['Status']; ?>
-                        </td>
+                            <td>
+                                <?php echo $row1['Status']; ?>
+                            </td>
 
-                    </tr>
+                        </tr>
 
                     <?php }
 
@@ -152,17 +154,88 @@ $project_result = $server_conn->query($sql_project);
 
                         <tr>
 
-                        <td><?php echo $row2['ProjectTitle']; ?></td>
+                            <td>
+                                <?php echo $row2['ProjectTitle']; ?>
+                            </td>
 
-                        <td><?php echo $row2['Description']; ?></td>
+                            <td>
+                                <?php echo $row2['Description']; ?>
+                            </td>
 
-                        <td><?php echo $row2['ProjectArea']; ?></td>
+                            <td>
+                                <?php echo $row2['ProjectArea']; ?>
+                            </td>
 
-                        <td><?php echo $row2['EstimatedTime']; ?></td>
+                            <td>
+                                <?php echo $row2['EstimatedTime']; ?>
+                            </td>
 
-                        <td><?php echo $row2['EstimatedCost']; ?></td>
+                            <td>
+                                <?php echo $row2['EstimatedCost']; ?>
+                            </td>
 
-                        <td><?php echo $row2['ProjectStatus']; ?></td>
+                            <td>
+                                <?php echo $row2['ProjectStatus']; ?>
+                            </td>
+
+                        </tr>
+
+                    <?php }
+
+                }
+
+                ?>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!--fundraise-->
+    <div class="container">
+
+        <h2>Fundraise Events</h2>
+
+        <table class="table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>Description</th>
+
+                    <th>Date of the Event</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <?php
+
+                if ($fundraise_result->num_rows > 0) {
+
+                    while ($row3 = $fundraise_result->fetch_assoc()) {
+
+                        ?>
+
+                        <tr>
+
+                            <td>
+                                <?php echo $row3['Name']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $row3['Description']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $row3['EventDate']; ?>
+                            </td>
 
                         </tr>
 

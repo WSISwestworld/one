@@ -56,6 +56,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
                 $_SESSION['Province'] = $row['Province'];
                 $_SESSION['NIC'] = $row['NIC'];
                 $_SESSION['DOB'] = $row['DOB'];
+                $_SESSION['Gender'] = $row['Gender'];
                 $_SESSION['TelNo'] = $row['TelNo'];
                 $_SESSION['Email'] = $row['Email'];
                 $_SESSION['PostalAddress'] = $row['PostalAddress'];
@@ -65,14 +66,14 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 
             } else {
 
-                header("Location: login_pg.php?error=Incorect 'Username' or 'Password'");
+                header("Location: login_pg.php?error=Incorrect 'Username' or 'Password'");
 
                 exit();
             }
 
         } else {
 
-            header("Location: login_pg.php?error=Incorect 'Username' or 'Password'");
+            header("Location: login_pg.php?error=Incorrect 'Username' or 'Password'");
 
             exit();
 
@@ -86,3 +87,5 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
     exit();
 
 }
+
+?>

@@ -6,8 +6,8 @@ if (isset($_GET['id'])) {
 
     $fundRaiseID = $_GET['id'];
 
-    // Administrator
-    if (isset($_SESSION['adminID'])) {
+    // Administrator or Personal Donor
+    if (isset($_SESSION['adminID']) or isset($_SESSION['donorID'])) {
 
         $sql_get = "SELECT * FROM fundRaise WHERE fundRaiseID='$fundRaiseID'";
 
@@ -36,7 +36,8 @@ if (isset($_GET['id'])) {
         <div class="container">
 
             <h2>
-                Fundraise: <?php echo $Name; ?>
+                Fundraise:
+                <?php echo $Name; ?>
             </h2>
 
             <table class="table">
@@ -44,7 +45,16 @@ if (isset($_GET['id'])) {
                 <thead>
 
                     <tr>
-                        <th>ID</th>
+                        <?php
+                        // Administrator
+                        if (isset($_SESSION['adminID'])) {
+                            ?>
+
+                            <th>ID</th>
+
+                        <?php
+                        }
+                        ?>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Date of the Event</th>
@@ -56,9 +66,19 @@ if (isset($_GET['id'])) {
                 <tbody>
 
                     <tr>
-                        <td>
-                            <?php echo $fundRaiseID; ?>
-                        </td>
+
+                        <?php
+                        // Administrator
+                        if (isset($_SESSION['adminID'])) {
+                            ?>
+
+                            <td>
+                                <?php echo $fundRaiseID; ?>
+                            </td>
+
+                        <?php
+                        }
+                        ?>
 
                         <td>
                             <?php echo $Name; ?>
@@ -78,10 +98,19 @@ if (isset($_GET['id'])) {
                             </a>
                         </td>
 
-                        <td>
-                            <a href="update.php?id=<?php echo $fundRaiseID; ?>">Edit</a>&nbsp;
-                            <a href="delete.php?id=<?php echo $fundRaiseID; ?>">Delete</a>
-                        </td>
+                        <?php
+                        // Administrator
+                        if (isset($_SESSION['adminID'])) {
+                            ?>
+
+                            <td>
+                                <a href="update.php?id=<?php echo $fundRaiseID; ?>">Edit</a>&nbsp;
+                                <a href="delete.php?id=<?php echo $fundRaiseID; ?>">Delete</a>
+                            </td>
+
+                        <?php
+                        }
+                        ?>
 
                     </tr>
 

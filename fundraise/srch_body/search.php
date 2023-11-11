@@ -24,7 +24,26 @@ if (isset($_POST['save'])) {
 
         $search = $_POST['search'];
 
-        $search_sql = $server_conn->prepare("SELECT * FROM fundRaise WHERE (fundRaiseID LIKE '%$search%') OR (Name LIKE '%$search%') OR (Description LIKE '%$search%') OR (EventDate LIKE '%$search%') OR (adminID LIKE '%$search%')");
+        // Administrator
+        if (isset($_SESSION['adminID'])) {
+
+            $search_sql = $server_conn->prepare("SELECT * FROM fundRaise WHERE (fundRaiseID LIKE '%$search%') OR (Name LIKE '%$search%') OR 
+            (Description LIKE '%$search%') OR (EventDate LIKE '%$search%') OR (adminID LIKE '%$search%')");
+
+        }
+        // Personal Donor
+        elseif (isset($_SESSION['donorID'])) {
+
+            $search_sql = $server_conn->prepare("SELECT * FROM fundRaise WHERE (Name LIKE '%$search%') OR 
+            (Description LIKE '%$search%') OR (EventDate LIKE '%$search%') OR (adminID LIKE '%$search%')");
+
+        } else {
+
+            header("Location: ../dashboard/dashboard.php");
+
+            exit();
+
+        }
 
         $search_sql->execute();
         $fundraise_details = $search_sql->fetchAll(PDO::FETCH_ASSOC);
@@ -72,7 +91,16 @@ if (isset($_POST['save'])) {
 
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <?php
+                    // Administrator
+                    if (isset($_SESSION['adminID'])) {
+                        ?>
+
+                        <th>ID</th>
+
+                    <?php
+                    }
+                    ?>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Date of the Event</th>
@@ -88,21 +116,34 @@ if (isset($_POST['save'])) {
                     foreach ($fundraise_details as $key => $value) {
                         ?>
                         <tr>
+                            <?php
+                            // Administrator
+                            if (isset($_SESSION['adminID'])) {
+                                ?>
+
                                 <td>
                                     <?php echo $value['fundRaiseID']; ?>
                                 </td>
 
-                                <td>
-                                    <?php echo $value['Name']; ?>
-                                </td>
+                            <?php
+                            }
+                            ?>
 
-                                <td><?php echo $value['Description']; ?></td>
+                            <td>
+                                <?php echo $value['Name']; ?>
+                            </td>
 
-                                <td>
-                                    <?php echo $value['EventDate']; ?>
-                                </td>
+                            <td>
+                                <?php echo $value['Description']; ?>
+                            </td>
 
-                                <td><?php echo $value['adminID']; ?></td>
+                            <td>
+                                <?php echo $value['EventDate']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $value['adminID']; ?>
+                            </td>
 
                             <td>
                                 <a href="srch_body/result.php?id=<?php echo $value['fundRaiseID']; ?>">Open</a>

@@ -63,14 +63,14 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 
             } else {
 
-                header("Location: login_pg.php?error=Incorect 'Registration Number' or 'Password'");
+                header("Location: login_pg.php?error=Incorrect 'Registration Number' or 'Password'");
 
                 exit();
             }
 
         } else {
 
-            header("Location: login_pg.php?error=Incorect 'Registration Number' or 'Password'");
+            header("Location: login_pg.php?error=Incorrect 'Registration Number' or 'Password'");
 
             exit();
 
@@ -84,3 +84,5 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
     exit();
 
 }
+
+?>

@@ -70,14 +70,6 @@ if (isset($_POST['update'])) {
 
     }
 
-    // ERRORRRRRRRRRRRRR
-    // ERRORR
-    // Check Double Regix
-    if ((!preg_match("/^[0-9]*$/", $EstimatedCost)) and ($costErr == "")) {
-        $costErr = "Only numbers are allowed";
-
-    }
-
 
     // data length validation
     if (!($title_len > 0 and $title_len <= 150) and ($titleErr == "")) {
@@ -214,7 +206,9 @@ if (isset($_GET['id'])) {
 
                     <input type="text" name="ProjectTitle" value="<?php echo $ProjectTitle; ?>">
 
-                    <span class="error">* <?php echo $titleErr; ?></span>
+                    <span class="error">*
+                        <?php echo $titleErr; ?>
+                    </span>
 
                     <input type="hidden" name="projectID" value="<?php echo $projectID; ?>">
 
@@ -224,7 +218,9 @@ if (isset($_GET['id'])) {
 
                     <textarea name="Description" placeholder="<?php echo $Description; ?>"></textarea>
 
-                    <span class="error">* <?php echo $descriptionErr; ?></span>
+                    <span class="error">*
+                        <?php echo $descriptionErr; ?>
+                    </span>
 
                     <input type="hidden" name="OldDescription" value="<?php echo $Description; ?>">
 
@@ -234,7 +230,9 @@ if (isset($_GET['id'])) {
 
                     <input type="text" name="ProjectArea" value="<?php echo $ProjectArea; ?>">
 
-                    <span class="error">* <?php echo $areaErr; ?></span>
+                    <span class="error">*
+                        <?php echo $areaErr; ?>
+                    </span>
 
                     <br>
 
@@ -242,15 +240,19 @@ if (isset($_GET['id'])) {
 
                     <input type="text" name="EstimatedTime" value="<?php echo $EstimatedTime; ?>">
 
-                    <span class="error">* <?php echo $timeErr; ?></span>
+                    <span class="error">*
+                        <?php echo $timeErr; ?>
+                    </span>
 
                     <br>
 
                     Estimated Cost:<br>
 
-                    <input type="text" name="EstimatedCost" value="<?php echo $EstimatedCost; ?>">
+                    <input type="number" step="0.01" name="EstimatedCost" value="<?php echo $EstimatedCost; ?>">
 
-                    <span class="error">* <?php echo $costErr; ?></span>
+                    <span class="error">*
+                        <?php echo $costErr; ?>
+                    </span>
 
                     <br>
 

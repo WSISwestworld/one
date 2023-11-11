@@ -4,7 +4,7 @@ $server_name = "localhost";
 
 $server_uname = "root";
 
-$server_password = "";
+$server_password = "amaya";
 
 $server_db_name = "wsis";
 

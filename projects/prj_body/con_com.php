@@ -70,7 +70,7 @@ if (
                                     </td>
 
                                     <td<?php echo $column == 'EstimatedCost' ? $add_class : ''; ?>>
-                                        <?php echo $row['EstimatedCost']; ?>
+                                        <?php echo "RS." . $row['EstimatedCost']; ?>
                                         </td>
 
                                         <td<?php echo $column == 'ProjectStatus' ? $add_class : ''; ?>>
