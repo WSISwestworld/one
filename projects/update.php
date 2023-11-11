@@ -70,14 +70,6 @@ if (isset($_POST['update'])) {
 
     }
 
-    // ERRORRRRRRRRRRRRR
-    // ERRORR
-    // Check Double Regix
-    if ((!preg_match("/^[0-9]*$/", $EstimatedCost)) and ($costErr == "")) {
-        $costErr = "Only numbers are allowed";
-
-    }
-
 
     // data length validation
     if (!($title_len > 0 and $title_len <= 150) and ($titleErr == "")) {
@@ -248,7 +240,7 @@ if (isset($_GET['id'])) {
 
                     Estimated Cost:<br>
 
-                    <input type="text" name="EstimatedCost" value="<?php echo $EstimatedCost; ?>">
+                    <input type="number" step="0.01" name="EstimatedCost" value="<?php echo $EstimatedCost; ?>">
 
                     <span class="error">* <?php echo $costErr; ?></span>
 

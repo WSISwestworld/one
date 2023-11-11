@@ -71,14 +71,6 @@ if (isset($_POST['submit'])) {
 
     }
 
-    // ERRORRRRRRRRRRRRR
-    // ERRORR
-    // Check Double Regix
-    if ((!preg_match("/^[0-9]*$/", $EstimatedCost)) and ($costErr == "")) {
-        $costErr = "Only numbers are allowed";
-
-    }
-
 
     // data length validation
     if (!($title_len > 0 and $title_len <= 150) and ($titleErr == "")) {
@@ -183,7 +175,9 @@ if (isset($_POST['submit'])) {
 
             <input type="text" name="ProjectTitle" placeholder="Project Title">
 
-            <span class="error">* <?php echo $titleErr; ?></span>
+            <span class="error">*
+                <?php echo $titleErr; ?>
+            </span>
 
             <br>
 
@@ -191,7 +185,9 @@ if (isset($_POST['submit'])) {
 
             <textarea name="Description" placeholder="Description"></textarea>
 
-            <span class="error">* <?php echo $descriptionErr; ?></span>
+            <span class="error">*
+                <?php echo $descriptionErr; ?>
+            </span>
 
             <br>
 
@@ -199,7 +195,9 @@ if (isset($_POST['submit'])) {
 
             <input type="text" name="ProjectArea" placeholder="Project Area">
 
-            <span class="error">* <?php echo $areaErr; ?></span>
+            <span class="error">*
+                <?php echo $areaErr; ?>
+            </span>
 
             <br>
 
@@ -207,15 +205,19 @@ if (isset($_POST['submit'])) {
 
             <input type="text" name="EstimatedTime" placeholder="Estimated Time">
 
-            <span class="error">* <?php echo $timeErr; ?></span>
+            <span class="error">*
+                <?php echo $timeErr; ?>
+            </span>
 
             <br>
 
             Estimated Cost:<br>
 
-            <input type="text" name="EstimatedCost" placeholder="Estimated Cost">
+            <input type="number" step="0.01" name="EstimatedCost" placeholder="RS.">
 
-            <span class="error">* <?php echo $costErr; ?></span>
+            <span class="error">*
+                <?php echo $costErr; ?>
+            </span>
 
             <br>
 
@@ -239,7 +241,9 @@ if (isset($_POST['submit'])) {
 
                 </select>
 
-                <span class="error">* <?php echo $statusErr; ?></span>
+                <span class="error">*
+                    <?php echo $statusErr; ?>
+                </span>
 
                 <br>
 
@@ -290,7 +294,9 @@ if (isset($_POST['submit'])) {
                     ?>
                 </select>
 
-                <span class="error">* <?php echo $conComErr; ?></span>
+                <span class="error">*
+                    <?php echo $conComErr; ?>
+                </span>
 
 
             <?php

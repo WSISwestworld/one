@@ -53,7 +53,9 @@ if (isset($_GET['id'])) {
 
         <div class="container">
 
-            <h2>Project <?php echo $ProjectTitle; ?></h2>
+            <h2>Project
+                <?php echo $ProjectTitle; ?>
+            </h2>
 
             <table class="table">
 
@@ -101,7 +103,7 @@ if (isset($_GET['id'])) {
                         </td>
 
                         <td>
-                            <?php echo $EstimatedCost; ?>
+                            <?php echo "RS." . $EstimatedCost; ?>
                         </td>
 
                         <td>

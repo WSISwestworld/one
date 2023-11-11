@@ -25,13 +25,13 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 
     if (empty($uname)) {
 
-        header("Location: login_pg.php?error='Admin ID' and 'Password' are required");
+        header("Location: login_pg.php?error='Email' and 'Password' are required");
 
         exit();
 
     } else if (empty($pass)) {
 
-        header("Location: login_pg.php?error='Admin ID' and 'Password' are required");
+        header("Location: login_pg.php?error='Email' and 'Password' are required");
 
         exit();
 
@@ -55,6 +55,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
                 $_SESSION['LName'] = $row['LName'];
                 $_SESSION['NIC'] = $row['NIC'];
                 $_SESSION['DOB'] = $row['DOB'];
+                $_SESSION['Gender'] = $row['Gender'];
                 $_SESSION['TelNo'] = $row['TelNo'];
                 $_SESSION['PostalAddress'] = $row['PostalAddress'];
 
@@ -63,14 +64,14 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 
             } else {
 
-                header("Location: login_pg.php?error=Incorect 'Admin ID' or 'Password'");
+                header("Location: login_pg.php?error=Incorrect 'Email' or 'Password'");
 
                 exit();
             }
 
         } else {
 
-            header("Location: login_pg.php?error=Incorect 'Admin ID' or 'Password'");
+            header("Location: login_pg.php?error=Incorrect 'Email' or 'Password'");
 
             exit();
 
@@ -84,3 +85,5 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
     exit();
 
 }
+
+?>
