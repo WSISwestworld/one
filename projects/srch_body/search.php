@@ -43,9 +43,9 @@ if (isset($_POST['save'])) {
 
         } else {
 
-        header("Location: ../dashboard/dashboard.php");
+            header("Location: ../dashboard/dashboard.php");
 
-        exit();
+            exit();
 
         }
 
@@ -61,98 +61,110 @@ if (isset($_POST['save'])) {
 
 ?>
 
-    <div class="container">
+<div class="container">
 
-        <form class="form-horizontal" action="#" method="post">
-            <div class="row">
-                <div class="form-group">
+    <form class="form-horizontal" action="#" method="post">
+        <div class="row">
+            <div class="form-group">
 
-                    <label class="control-label col-sm-4" for="search"><b>Search</b>:</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" name="search" placeholder="Search here">
-
-                    </div>
-                    <div class="col-sm-2">
-                        <button type="submit" name="save" class="btn btn-success btn-sm">Search</button>
-                    </div>
+                <label class="control-label col-sm-4" for="search"><b>Search</b>:</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="search" placeholder="Search here">
 
                 </div>
-                <div class="form-group">
-                    <span class="error" style="color:red;"><?php echo $searchErr; ?></span>
+                <div class="col-sm-2">
+                    <button type="submit" name="save" class="btn btn-success btn-sm">Search</button>
                 </div>
 
             </div>
-        </form>
-
-        <br /><br />
-        <h3><u>Search Results</u></h3><br />
-
-        <div class="table-responsive">
-
-            <table class="table">
-
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Project Title</th>
-                        <th>Description</th>
-                        <th>Project Area</th>
-                        <th>Estimated Time</th>
-                        <th>Estimated Cost</th>
-                        <th>Project Status</th>
-                        <th>Admin ID</th>
-                        <th>Construction Company</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <?php
-                    if (!$project_details) {
-                        echo '<tr>No data found</tr>';
-                    } else {
-                        foreach ($project_details as $key => $value) {
-                            ?>
-                            <tr>
-                                <td><?php echo $key + 1; ?></td>
-
-                                <td>
-                                    <?php echo $value['ProjectTitle']; ?>
-                                </td>
-
-                                <td><?php echo $value['Description']; ?></td>
-
-                                <td>
-                                    <?php echo $value['ProjectArea']; ?>
-                                </td>
-
-                                <td><?php echo $value['EstimatedTime']; ?></td>
-
-                                <td>
-                                    <?php echo $value['EstimatedCost']; ?>
-                                </td>
-
-                                <td><?php echo $value['ProjectStatus']; ?></td>
-
-                                <td>
-                                    <?php echo $value['adminID']; ?>
-                                </td>
-
-                                <td><?php echo $value['ComName']; ?></td>
-
-                                <td>
-                                    <a href="srch_body/result.php?id=<?php echo $value['projectID']; ?>">Open</a>
-                                </td>
-                            </tr>
-
-                        <?php
-                        }
-                    }
-                    ?>
-
-                </tbody>
-
-            </table>
+            <div class="form-group">
+                <span class="error" style="color:red;">
+                    <?php echo $searchErr; ?>
+                </span>
+            </div>
 
         </div>
+    </form>
+
+    <br /><br />
+    <h3><u>Search Results</u></h3><br />
+
+    <div class="table-responsive">
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Project Title</th>
+                    <th>Description</th>
+                    <th>Project Area</th>
+                    <th>Estimated Time</th>
+                    <th>Estimated Cost</th>
+                    <th>Project Status</th>
+                    <th>Admin ID</th>
+                    <th>Construction Company</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php
+                if (!$project_details) {
+                    echo '<tr>No data found</tr>';
+                } else {
+                    foreach ($project_details as $key => $value) {
+                        ?>
+                        <tr>
+                            <td>
+                                <?php echo $key + 1; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $value['ProjectTitle']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $value['Description']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $value['ProjectArea']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $value['EstimatedTime']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo "RS." . $value['EstimatedCost']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $value['ProjectStatus']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $value['adminID']; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $value['ComName']; ?>
+                            </td>
+
+                            <td>
+                                <a href="srch_body/result.php?id=<?php echo $value['projectID']; ?>">Open</a>
+                            </td>
+                        </tr>
+
+                    <?php
+                    }
+                }
+                ?>
+
+            </tbody>
+
+        </table>
 
     </div>
+
+</div>

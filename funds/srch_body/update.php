@@ -178,8 +178,29 @@ if (isset($_GET['id'])) {
                         <div class="dropdown-content">
                             <a href="../../funds/funds_search.php">Search Funds</a>
                             <a href="../../funds/funds.php">All Funds</a>
+                            <hr>
                             <a href="../../fundraise/fundraise_search.php">Search Fundraises</a>
                             <a href="../../fundraise/fundraise.php">All Fundraises</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="help">Users
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="../../users/admin/admin.php">All Administrators</a>
+                            <hr>
+                            <a href="../../users/cons_company/cons_company_search.php">Search Construction Companies</a>
+                            <a href="../../users/cons_company/cons_company.php">All Construction Companies</a>
+                            <hr>
+                            <a href="../../users/info_pro/info_pro_search.php">Search Information Providers</a>
+                            <a href="../../users/info_pro/info_pro.php">All Information Providers</a>
+                            <hr>
+                            <a href="../../users/org_don/org_don_search.php">Search Organizational Donors</a>
+                            <a href="../../users/org_don/org_don.php">All Organizational Donors</a>
+                            <hr>
+                            <a href="../../users/personal_don/personal_don_search.php">Search Personal Donors</a>
+                            <a href="../../users/personal_don/personal_don.php">All Personal Donors</a>
                         </div>
                     </div>
 
@@ -196,7 +217,7 @@ if (isset($_GET['id'])) {
                         <div class="dropdown">
                             <img class="" src="../../images/user-icon.png" alt="user_icon">
                             <div class="dropdown-content">
-                                <a href="#">Profile</a>
+                                <a href="../../profile/profile.php">Update My Profile</a>
                                 <a href="../../logout.php">Log Out</a>
                             </div>
                             <div class="username">
@@ -231,7 +252,9 @@ if (isset($_GET['id'])) {
 
                         <input type="number" step="0.01" name="Amount" placeholder="RS." value="<?php echo $Amount; ?>">
 
-                        <span class="error">* <?php echo $AmountErr; ?></span>
+                        <span class="error">*
+                            <?php echo $AmountErr; ?>
+                        </span>
 
                         <input type="hidden" name="fundID" value="<?php echo $fundID; ?>">
 
@@ -241,7 +264,9 @@ if (isset($_GET['id'])) {
 
                         <input type="date" name="Date" value="<?php echo $Date; ?>">
 
-                        <span class="error">* <?php echo $DateErr; ?></span>
+                        <span class="error">*
+                            <?php echo $DateErr; ?>
+                        </span>
 
                         <br>
 
@@ -339,7 +364,9 @@ if (isset($_GET['id'])) {
 
                         <br>
 
-                        <span class="error"><?php echo $IDErr; ?></span>
+                        <span class="error">
+                            <?php echo $IDErr; ?>
+                        </span>
 
                         <br><br>
 
@@ -348,6 +375,7 @@ if (isset($_GET['id'])) {
                     </fieldset>
 
                 </form>
+
             </div>
 
             <script src="../../app.js"></script>

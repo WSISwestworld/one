@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>WSIS | SignUp</title>
+    <title>WSIS | Register</title>
 
     <link rel="stylesheet" href="../../signup_styles.css">
 
@@ -14,6 +14,151 @@
         .error {
             color: #FF0000;
         }
+        /* Reset some default styles */
+        .content{
+            
+    height: 100%; /* 100% of the viewport height */
+    
+}
+
+.header{
+    padding:20px;
+}
+
+.header img {
+    width:200px;
+    max-width: 200px;
+}
+
+        
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the body background */
+body {
+    background: linear-gradient(to bottom, #007BFF, #2196F3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Style the container holding the form */
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+/* Style the form elements */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 18px;
+    color: #007BFF;
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    outline: none;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    outline: none;
+}
+
+.error {
+    color: #FF0000;
+    font-size: 14px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style the "Show Password" checkbox */
+input[type="checkbox"] {
+    margin-top: 10px;
+    color: #007BFF;
+}
+
+/* Style the header/logo */
+.header {
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+/* Additional styling for specific elements */
+.column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.square {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.center {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .square {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 100%; /* Make sure it takes the full width */
+            max-width: 600px; /* Adjust as needed */
+        }
+
     </style>
 </head>
 
@@ -21,7 +166,7 @@
 
     <?php
     // define variables and set to empty values
-    $fnameErr = $lnameErr = $unameErr = $emailErr = $phoneErr = $provinceErr = $nicErr = $dobErr = $passwordErr = $addressErr = $regErr = "";
+    $fnameErr = $lnameErr = $unameErr = $emailErr = $phoneErr = $provinceErr = $nicErr = $passwordErr = $addressErr = $regErr = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -30,12 +175,31 @@
         $phone = test_input($_POST["phone"]);
         $province = test_input($_POST["province"]);
         $nic = test_input($_POST["nic"]);
-        $dob = test_input($_POST["dob"]);
-        $address = test_input($_POST["address"]);
         $password = test_input($_POST["password"]);
         $confpassword = test_input($_POST["confpassword"]);
         $email = test_input($_POST["email"]);
         $lname = test_input($_POST["lname"]);
+
+        $no = test_input($_POST["no"]);
+        $lane1 = test_input($_POST["lane1"]);
+        $lane2 = test_input($_POST["lane2"]);
+        $city = test_input($_POST["city"]);
+
+        if (!empty($no) and !empty($lane1) and !empty($lane2) and !empty($city)) {
+            $address = 'No ' . $no . ', ' . $lane1 . ', ' . $lane2 . ', ' . $city . '.';
+
+        } elseif (!empty($no) and !empty($lane1) and !empty($city)) {
+            $address = 'No ' . $no . ', ' . $lane1 . ', ' . $city . '.';
+
+        } elseif (!empty($no) and !empty($city)) {
+            $address = 'No ' . $no . ', ' . $city . '.';
+
+        } elseif (empty($no) and empty($lane1) and empty($lane2) and empty($city)) {
+
+        } else {
+            $addressErr = "'Postal Address' format cannot be recognized";
+
+        }
 
         $fname_len = strlen($fname);
         $uname_len = strlen($uname);
@@ -66,16 +230,12 @@
             $nicErr = "'National Identity Card Number' is required";
 
         }
-        if (empty($_POST["dob"])) {
-            $dobErr = "'Date of Birth' is required";
-
-        }
-        if (empty($_POST["address"])) {
+        if (empty($address) and ($addressErr == "")) {
             $addressErr = "'Postal Address' is required";
 
         }
         if (empty($_POST["password"]) || empty($_POST["confpassword"])) {
-            $passwordErr = "Password' and 'Confirm password' fields are required";
+            $passwordErr = "'Password' and 'Confirm Password' fields are required";
 
         }
 
@@ -85,7 +245,7 @@
 
         }
         // check if only contains numbers and letters
-        if ((!preg_match("/^[A-Za-z0-9]*$/", $uname)) and ($unameErr == "")) {
+        if ((!preg_match("/^[A-Za-z0-9_]*$/", $uname)) and ($unameErr == "")) {
             $unameErr = "Only numbers and letters are allowed";
 
         }
@@ -95,19 +255,26 @@
 
         }
         // check if only contains numbers and 10 digit limit
-        if ((!preg_match("/^[0-9]{10}+$/", $phone)) and ($phoneErr == "")) {
+        if ((!preg_match("/^[0-9]{9,10}+$/", $phone)) and ($phoneErr == "")) {
             $phoneErr = "Only 10 digit numbers are allowed";
 
         }
-        // check if only contains numbers and 12 digit limit
-        // add regular expression !!!!!!!!!!!!!!!!!!!!!!!!!!
-        if ((!preg_match("/^[vV0-9]{10,12}+$/", $nic)) and ($nicErr == "")) {
+        // check if only contains digits with 'V' character and 10, 12 character limit
+        if ((!preg_match("/^[0-9vV]{10,12}+$/", $nic)) and ($nicErr == "")) {
             $nicErr = "Only 9 digits with 'V' or 12 digits are allowed";
 
         }
         // check if e-mail address is well-formed or null
         if (!filter_var($email, FILTER_VALIDATE_EMAIL) and !empty($_POST["email"])) {
             $emailErr = "Invalid 'Email address' format";
+
+        }
+        // check if only contains alphanumeric characters
+        if (
+            (!preg_match("/^[\/0-9a-zA-Z-' ]*$/", $no) || !preg_match("/^[0-9a-zA-Z-' ]*$/", $lane1) ||
+                !preg_match("/^[0-9a-zA-Z-' ]*$/", $lane2) || !preg_match("/^[0-9a-zA-Z-' ]*$/", $city)) and ($addressErr == "")
+        ) {
+            $addressErr = "Only numbers, letters and white spaces allowed";
 
         }
 
@@ -137,10 +304,13 @@
 
         }
 
+        // NIC calculations
+        include_once "../../nic_cal.php";
+
         // Call data submission
         if (
             ($fnameErr == "") and ($lnameErr == "") and ($unameErr == "") and ($emailErr == "") and ($phoneErr == "") and
-            ($provinceErr == "") and ($nicErr == "") and ($dobErr == "") and ($passwordErr == "") and ($addressErr == "")
+            ($provinceErr == "") and ($nicErr == "") and ($passwordErr == "") and ($addressErr == "") and ($regErr == "")
         ) {
             data_submission();
 
@@ -151,7 +321,7 @@
     {
         include_once "../../../db_conn.php";
 
-        global $fname, $lname, $province, $nic, $dob, $phone, $email, $address, $uname, $password;
+        global $fname, $lname, $province, $nic, $dob, $phone, $email, $address, $uname, $password, $gender;
 
         $sql_check_uname = "SELECT * FROM infoProvider WHERE Username='$uname'";
         $sql_check_nic = "SELECT * FROM infoProvider WHERE NIC='$nic'";
@@ -176,7 +346,7 @@
 
             if ($row['Username'] === $uname) {
 
-                $regErr = "Given username is already taken";
+                $regErr = "Given 'Username' is already taken";
             }
 
         }
@@ -194,8 +364,8 @@
         // information submission and registration success
         else {
             // system registration process
-            $sql_submit = "INSERT INTO infoProvider (FName, LName, Province, NIC, DOB, TelNo, Email, PostalAddress, Username, Password)
-             VALUES ('$fname','$lname','$province','$nic','$dob','$phone','$email','$address','$uname','$password')";
+            $sql_submit = "INSERT INTO infoProvider (FName, LName, Province, NIC, DOB, TelNo, Email, PostalAddress, Username, Password, Gender)
+             VALUES ('$fname','$lname','$province','$nic','$dob','$phone','$email','$address','$uname','$password','$gender')";
 
             if (mysqli_query($server_conn, $sql_submit)) {
 
@@ -221,6 +391,7 @@
                         $_SESSION['Province'] = $row['Province'];
                         $_SESSION['NIC'] = $row['NIC'];
                         $_SESSION['DOB'] = $row['DOB'];
+                        $_SESSION['Gender'] = $row['Gender'];
                         $_SESSION['TelNo'] = $row['TelNo'];
                         $_SESSION['Email'] = $row['Email'];
                         $_SESSION['PostalAddress'] = $row['PostalAddress'];
@@ -276,7 +447,9 @@
                                 <input type="text" id="fname" name="fname" placeholder="Your first name here..">
                             </td>
                             <td>
-                                <span class="error">* <?php echo $fnameErr; ?></span>
+                                <span class="error">*
+                                    <?php echo $fnameErr; ?>
+                                </span>
                             </td>
                             <td>
                                 <label for="lname">Last Name</label>
@@ -294,7 +467,9 @@
                                 <input type="text" id="uname" name="uname" placeholder="ex:- chamu01">
                             </td>
                             <td>
-                                <span class="error">* <?php echo $unameErr; ?></span>
+                                <span class="error">*
+                                    <?php echo $unameErr; ?>
+                                </span>
                             </td>
                             <td>
                                 <label for="email">Email</label>
@@ -314,7 +489,9 @@
                                 <input type="text" id="phone" name="phone" placeholder="Telephone Number">
                             </td>
                             <td>
-                                <span class="error">* <?php echo $phoneErr; ?></span>
+                                <span class="error">*
+                                    <?php echo $phoneErr; ?>
+                                </span>
                             </td>
                             <td>
                                 <label for="province">Province</label>
@@ -332,7 +509,9 @@
                                 </select>
                             </td>
                             <td>
-                                <span class="error">* <?php echo $provinceErr; ?></span>
+                                <span class="error">*
+                                    <?php echo $provinceErr; ?>
+                                </span>
                             </td>
                         </tr>
 
@@ -342,14 +521,9 @@
                                 <input type="text" id="nic" name="nic" placeholder="National Identity Card Number">
                             </td>
                             <td>
-                                <span class="error">* <?php echo $nicErr; ?></span>
-                            </td>
-                            <td>
-                                <label for="dob">Date of Birth</label>
-                                <input type="date" id="dob" name="dob">
-                            </td>
-                            <td>
-                                <span class="error">* <?php echo $dobErr; ?></span>
+                                <span class="error">*
+                                    <?php echo $nicErr; ?>
+                                </span>
                             </td>
                         </tr>
                         <tr>
@@ -362,7 +536,9 @@
                                 <input type="password" id="confpassword" name="confpassword">
                             </td>
                             <td>
-                                <span class="error">* <?php echo $passwordErr; ?></span>
+                                <span class="error">*
+                                    <?php echo $passwordErr; ?>
+                                </span>
                             </td>
                         </tr>
                         <tr>
@@ -374,11 +550,15 @@
                         <tr>
                             <td>
                                 <label for="address">Postal Address</label>
-                                <textarea id="address" name="address" value="">
-                            </textarea>
+                                <p>No: </p><input type="text" name="no">
+                                <p>Lane 01: </p><input type="text" name="lane1">
+                                <p>Lane 02: </p><input type="text" name="lane2">
+                                <p>City: </p><input type="text" name="city">
                             </td>
                             <td>
-                                <span class="error">* <?php echo $addressErr; ?></span>
+                                <span class="error">*
+                                    <?php echo $addressErr; ?>
+                                </span>
                             </td>
                         </tr>
                         <tr>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 20, 2023 at 07:39 PM
+-- Generation Time: Jul 26, 2023 at 02:14 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -19,10 +19,11 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `wsis`
+
+CREATE DATABASE wsis;
 --
-
+USE wsis;
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `admin`
 --
@@ -37,16 +38,17 @@ CREATE TABLE `admin` (
   `TelNo` int(11) NOT NULL,
   `Email` varchar(70) NOT NULL,
   `PostalAddress` varchar(300) NOT NULL,
-  `Password` varchar(20) NOT NULL
+  `Password` varchar(20) NOT NULL,
+  `Gender` char(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`adminID`, `FName`, `LName`, `Designation`, `NIC`, `DOB`, `TelNo`, `Email`, `PostalAddress`, `Password`) VALUES
-('CHH01', 'Chamudini Sansala Kodithuwakku', 'Tharanga', 'Singing', '772436200110', '2007-04-21', 778519048, 'chamu0110@gmail.com', 'No.270/2, Thilakapura, Ambalangoda.', '098765GG'),
-('TIT01', 'Iresh', 'Tharanga', 'ML', '991450300V', '1999-05-24', 772974980, 'cobalt010@outlook.com', 'No.270/2, Thilakapura, Ambalangoda.', '567890');
+INSERT INTO `admin` (`adminID`, `FName`, `LName`, `Designation`, `NIC`, `DOB`, `TelNo`, `Email`, `PostalAddress`, `Password`, `Gender`) VALUES
+('CHH01', 'Chamudini Sansala Kodithuwakku', 'Tharanga', 'Singing', '772436200110', '2007-04-21', 778519048, 'chamu0110@gmail.com', 'No.270/2, Thilakapura, Ambalangoda.', '098765GG', ''),
+('TIT01', 'Iresh', 'Tharanga', 'ML', '991450300V', '1999-05-24', 772974980, 'ggwrp2@outlook.com', 'fsgsghgh', '12345678', 'Male');
 
 -- --------------------------------------------------------
 
@@ -57,8 +59,8 @@ INSERT INTO `admin` (`adminID`, `FName`, `LName`, `Designation`, `NIC`, `DOB`, `
 CREATE TABLE `constructionCompany` (
   `conComID` int(11) NOT NULL,
   `ComName` varchar(100) NOT NULL,
-  `RegNo` varchar(20) NOT NULL,
-  `TIN` varchar(30) NOT NULL,
+  `RegNo` char(21) NOT NULL,
+  `TIN` char(21) NOT NULL,
   `TelNo` int(11) NOT NULL,
   `Email` varchar(70) NOT NULL,
   `PostalAddress` varchar(300) NOT NULL,
@@ -70,9 +72,10 @@ CREATE TABLE `constructionCompany` (
 --
 
 INSERT INTO `constructionCompany` (`conComID`, `ComName`, `RegNo`, `TIN`, `TelNo`, `Email`, `PostalAddress`, `Password`) VALUES
-(1, 'inforge Pvt Ltd', '121426740', '0987654321', 772974980, 'iresh@inforge.com', 'No. 270/2,\r\nKatubedda,\r\nMoratuwa.', '54321'),
-(2, 'GGWP Pvt Ltd.', '9876543210', '6532482487092', 777838356, 'ggwp@gg.lk', 'No.50/3, Katubedda, Moratuwa.', '567890'),
-(3, 'ARM', '463463763t346', '4634634f4675g', 778519048, 'package@arm.lk', 'NO.390,\r\nGalle,\r\nmatara.', '654321');
+(1, 'infXrge Pvt Ltd', '121426740', '0987654321', 772974980, 'iresh@inforge.com', 'No. 270/2,\r\nKatubedda,\r\nMoratuwa.', '12345678'),
+(2, 'GGWZP Pvt Ltd', '9876543210', '6532482487092', 777838300, 'ggwp@gg.lk', 'abcsfaffas', '1234567890'),
+(3, 'ARM01', '463463763t346', '4634634f467FH', 778519048, 'package@arm.lk', 'NO.390,\r\nGalle,\r\nmatara.', '12345678'),
+(4, 'GGWPXR', '1234GKT', '44231GUYX', 772312345, 'ggwp123@hh.lk', 'No 234, fadfdsfs, gsgsfdg, gfdgdg.', '12345678');
 
 -- --------------------------------------------------------
 
@@ -142,37 +145,20 @@ CREATE TABLE `infoProvider` (
   `Email` varchar(70) DEFAULT NULL,
   `PostalAddress` varchar(300) NOT NULL,
   `Username` char(11) NOT NULL,
-  `Password` varchar(20) NOT NULL
+  `Password` varchar(200) NOT NULL,
+  `Gender` char(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `infoProvider`
 --
 
-INSERT INTO `infoProvider` (`userID`, `FName`, `LName`, `Province`, `NIC`, `DOB`, `TelNo`, `Email`, `PostalAddress`, `Username`, `Password`) VALUES
-(1, 'iresh', 'tharanga', 'Uva Province', '87623', '2001-01-26', 98765, 'ir@gmail.com', '390/5, ambalangoda', 'iresh1', '123'),
-(2, 'iresh', 'tharanga', 'Uva Province', '23453', '2023-01-25', 123456, 're@gmail.com', '234/5, amb', 'iresh3', '54321'),
-(3, 'ashani', 'sansala', 'Central Province', '43213', '2023-01-10', 54321, 'ash@gmail.com', '230/32, amb', 'gg1', '123456'),
-(4, 'it', 'th', 'North Western Province', '992649800v', '2023-01-12', 778519048, '', 'No 367/2, Katubedda, Moratuwa.', 'it02', '09876'),
-(5, 'it', 'th', 'North Western Province', '992649800v', '2023-01-12', 778519048, '', 'No 367/2, Katubedda, Moratuwa.', 'it02', '09876'),
-(6, 'it', 'th', 'North Western Province', '992649800v', '2023-01-12', 778519048, '', 'No 367/2, Katubedda, Moratuwa.', 'it02', '12345'),
-(7, 'ggff', 'wpreter', 'Southern Province', '887645388v', '2023-01-20', 882734980, '13df@gmail.com', '354bsdggfdg', 'gg12e', '54321'),
-(8, 'ggffo', 'wprer', 'Uva Province', '3425', '2023-01-26', 665745, '', '5dfghdfh7', 'gg2e', '54321'),
-(9, 'g', 'wp', 'Uva Province', '3425', '2023-01-26', 66574, '', '5dfghdfh7', 'gg2', '54321'),
-(10, 'gh', 'aw', 'Southern Province', '3425', '2023-01-10', 664, '', '5dfghdfh7', 'g2', '54321'),
-(11, 'yyy', 'awf', 'Uva Province', '342', '2023-01-10', 677, '', '5dfghdfh7', 'g2r', '54321'),
-(12, 'ytr', 'aww', 'Uva Province', '3467', '2023-01-19', 6787, '', '5dfghdfh7', 'e2r', '12345'),
-(13, 'Iresh', 'Tharanga', 'Southern Province', '123456789012', '2023-01-18', 1234567890, '', 'no 390/2, dsafasda', 'gg', 'zcS2a5FQjQN932p'),
-(14, 'gg', 'tt', 'Southern Province', '324568969', '2023-01-12', 777838394, '', '544gsdgsdg', 'ikaru1', '123'),
-(15, 'rere', 'wrewr', 'Southern Province', '991223900832', '2023-01-26', 772974980, '', '35sfgsdgsg', 'eer5', '123'),
-(16, 'Iresh', 'Tharanga', 'Sabaragamuwa Province', '991450300562', '2023-01-05', 777838394, '', 'wedqew32452', 'mnb1', '123456789'),
-(17, 'ggreg', 'reyery', 'Sabaragamuwa Province', '123456789012', '2023-01-26', 778519048, 'ash@hg.lk', '23421, ghshhshfh, gsgsdgs', 'ir323', '12345678'),
-(18, 'ggreg', 'reyery', 'Sabaragamuwa Province', '123456789012', '2023-01-26', 778519048, 'rr@kj.lk', '23421, ghshhshfh, gsgsdgs', 'iresh4', '12345678'),
-(19, 'ggwp', '', 'North Central Province', '991450300122', '2023-01-20', 778519048, '', '120/2 jasdadai, adiaiddai.', 'iresh011', '12345678'),
-(20, 'Cobalt', 'copperfield', 'Western Province', '991450300674', '2023-01-20', 917911019, '', '2123, djaiodais, jaosdjao\r\n sdjaksdja.', 'cobalt01', '1234qwer'),
-(21, 'Cobhg', 'copperfield', 'Western Province', '991450300673', '2023-01-20', 917911019, '', '2123, djaiodais, jaosdjao\r\n sdjaksdja.', 'cobalt10', '1234qwer'),
-(22, 'ghhhet', 'rtyr', 'Southern Province', '991234500780', '2023-01-10', 772974988, '', '240/3, thaiakka, ajda.', '555', '987654321'),
-(23, 'adsad', '', 'Northern Province', '123456789023', '2023-01-18', 778519040, '', '123/4, hakfaks, ajfajfkajfks', '12wwx', '123456789');
+INSERT INTO `infoProvider` (`userID`, `FName`, `LName`, `Province`, `NIC`, `DOB`, `TelNo`, `Email`, `PostalAddress`, `Username`, `Password`, `Gender`) VALUES
+(1, 'iresh', 'tharanga', 'Uva Province', '87623', '2001-01-26', 98765, 'ir@gmail.com', '390/5, ambalangoda', 'iresh1', '123', ''),
+(3, 'ashani', 'sansala', 'Central Province', '43213', '2023-01-10', 54321, 'ash@gmail.com', '230/32, amb', 'gg1', '123456', ''),
+(20, 'Cobalt', 'copperfield', 'Western Province', '991450300674', '2023-01-20', 917911019, '', '2123, djaiodais, jaosdjao\r\n sdjaksdja.', 'cobalt01', '1234qwer', ''),
+(31, 'Ashani', 'Sansala', 'Western Province', '200176001585', '2001-09-16', 760156782, 'iresh.ashani@gmail.com', 'No No 123, Katandola, Thalagaspe, Elpitiya.', 'ashu02', 'iresha1234', 'Female'),
+(32, 'KLIH', '', 'Northern Province', '991450300v', '1999-05-24', 917911019, 't4t4@gh.lk', 'No 123124, fsaddfdsfs, gsdgsdgsd, sdgsdgsg.', 'bbht12', '1234567890x', 'Male');
 
 -- --------------------------------------------------------
 
@@ -183,10 +169,10 @@ INSERT INTO `infoProvider` (`userID`, `FName`, `LName`, `Province`, `NIC`, `DOB`
 CREATE TABLE `organizationalDonor` (
   `orgDonorID` int(11) NOT NULL,
   `OrgName` varchar(100) NOT NULL,
-  `RegNo` varchar(20) NOT NULL,
+  `RegNo` char(21) NOT NULL,
   `Category` varchar(50) DEFAULT NULL,
-  `TIN` varchar(30) NOT NULL,
-  `TelNo` int(11) DEFAULT NULL,
+  `TIN` char(21) NOT NULL,
+  `TelNo` int(11) NOT NULL,
   `Email` varchar(70) NOT NULL,
   `PostalAddress` varchar(300) DEFAULT NULL,
   `Password` varchar(20) NOT NULL
@@ -197,8 +183,8 @@ CREATE TABLE `organizationalDonor` (
 --
 
 INSERT INTO `organizationalDonor` (`orgDonorID`, `OrgName`, `RegNo`, `Category`, `TIN`, `TelNo`, `Email`, `PostalAddress`, `Password`) VALUES
-(1, 'GG Lanka Org', '9876565789', 'Development', '12345678', 777848492, 'ggl@gg.org', 'No.72/4, Katubeddda, Moratuwa.', '567890'),
-(2, 'FF Div Org', '2455678907', 'Financial', '1234356789', 778426046, 'ffd@div.org', NULL, '5432167890');
+(1, 'GX Lanka OrgX', '9876565789', 'Marketing and Advertising', '12345678', 777848492, 'ggl@gg.org', 'No.72/4, Katubeddda, Moratuwa.', '12345678'),
+(2, 'FFZK', '2455678907', 'Education and Training', '1234356789', 778426046, 'ffd@div.org', '12/2,\r\nasfasfasf,\r\nasff', '123456789');
 
 -- --------------------------------------------------------
 
@@ -213,18 +199,35 @@ CREATE TABLE `personalDonor` (
   `NIC` char(13) NOT NULL,
   `DOB` date NOT NULL,
   `TelNo` int(11) NOT NULL,
-  `Email` varchar(70) DEFAULT NULL,
+  `Email` varchar(70) NOT NULL,
   `PostalAddress` varchar(300) DEFAULT NULL,
-  `Password` varchar(20) NOT NULL
+  `Password` varchar(20) NOT NULL,
+  `Gender` char(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `personalDonor`
 --
 
-INSERT INTO `personalDonor` (`donorID`, `FName`, `LName`, `NIC`, `DOB`, `TelNo`, `Email`, `PostalAddress`, `Password`) VALUES
-(1, 'Makise', 'Kurisu', '234540499234', '2013-01-23', 912435678, 'handk@gg.lk', NULL, '1234567890'),
-(2, 'Daru', 'Kun', '773456789230', '2000-01-17', 775623456, NULL, NULL, '987654321');
+INSERT INTO `personalDonor` (`donorID`, `FName`, `LName`, `NIC`, `DOB`, `TelNo`, `Email`, `PostalAddress`, `Password`, `Gender`) VALUES
+(1, 'Makise', 'Kurisu', '234540499234', '2013-01-23', 912435678, 'handk@gg.lk', NULL, '1234567890', '0'),
+(2, 'Daru', 'Kun', '773456789230', '2000-01-17', 775623456, 'grand1@abc.lk', NULL, '987654321', '0'),
+(3, 'iresh', 'tharanga', '123456789v', '2023-01-26', 772974980, 'iresh01@abc.lk', '435gregergerg', '123456789', '0'),
+(4, 'eafasfas', '', '123435622v', '2023-01-26', 1234567890, '3ffefe@gma.lk', '123 dsgsdgsdgds', '123456789', '0'),
+(5, 'dasfasfs', 'asfsafasfs', '123456782v', '2023-01-18', 1234567890, '123gdsgsd@hl.lk', '23 fasfasfas asfasfasfas fafasfasf', '123456789', '0'),
+(6, 'dasfasfs', 'asfsafasfs', '123443212v', '2023-01-18', 1234567890, '123gds12@hl.lk', '   ', '123456789', '0'),
+(7, 'qweer', '', '123456789034', '2023-01-11', 1234567890, 'gfjgfjfg123@ffd.lk', '   ', '12345678', '0'),
+(8, 'ggwphXX', '', '123456789089', '2023-01-20', 772345678, 'ZZKK12@kk.lk', 'No ,,,.', '123456789', '0'),
+(9, 'ggwphXX', '', '123412789089', '2023-01-20', 772345678, 'ZZKK123@kk.lk', 'No ,,,.', '12345678', '0'),
+(10, 'ggwphXX', '', '123412745089', '2023-01-20', 772345678, 'ZZKK3@kk.lk', 'No ,,,.', '12345678', '0'),
+(11, 'ggwphXX', '', '123412712089', '2023-01-20', 772345678, 'ZZKK34@kk.lk', 'No ,,,.', '12345678', '0'),
+(12, 'ggwphXX', '', '123412712289', '2023-01-20', 772345678, 'ZZ1K34@kk.lk', '', '12345678', '0'),
+(13, 'ggwpZZZ', '', '132412712289', '1324-05-06', 772345678, 'ZZ1124@kk.lk', 'No 12,adsdsa,123.', '12345678', 'Male'),
+(14, 'ggwphXX', '', '132412542289', '2023-01-20', 772345678, 'ZZ24@kk.lk', 'No 12,\nadsdsa,\nsfasf,\n123.', '12345678', '0'),
+(15, 'ggwphXX', '', '132412543289', '2023-01-20', 772345678, 'ZZ84@kk.lk', '', '12345678', '0'),
+(16, 'dasd', '', '883456789V', '2023-01-27', 778537834, '34fe@gh.lk', '', '12345678', '0'),
+(24, 'sakfasf', '', '991450300v', '1999-05-24', 778519048, 'mkk12@kk.lk', 'dafasdas 12  ewgwegwegew4/', '12345678', 'Male'),
+(25, 'safas', '', '732950133v', '1973-10-21', 773424134, 'asfaff43@gg.lk', '', '12345678', 'Male');
 
 -- --------------------------------------------------------
 
@@ -303,7 +306,8 @@ INSERT INTO `waterSupplyIssue` (`issueID`, `IssueType`, `District`, `Location`, 
 (12, 'typ2', 'Kandy', 'GHHHXCx', 200, 'agfagagddsdsgsd', '', 'Verified', NULL, 'TIT01'),
 (13, 'typ2', 'Kandy', 'afasfas', 56, 'sdafasfasf', '', 'Verified', NULL, 'TIT01'),
 (14, 'typ1', 'Kalutara', 'Gdhgg', 123, 'XXXXXXXXXXXXXX', 'SMS Alert', 'Pending..', 20, NULL),
-(15, 'typ2', 'Jaffna', 'fasfasfaf', 200, 'sffgafasfasfasf', '', 'Verified', NULL, 'TIT01');
+(15, 'typ2', 'Jaffna', 'fasfasfaf', 200, 'sffgafasfasfasf', '', 'Verified', NULL, 'TIT01'),
+(16, 'typ2', 'Gampaha', 'assaf', 4, 'fasf', '', 'Ignored', NULL, 'TIT01');
 
 --
 -- Indexes for dumped tables
@@ -379,7 +383,7 @@ ALTER TABLE `waterSupplyIssue`
 -- AUTO_INCREMENT for table `constructionCompany`
 --
 ALTER TABLE `constructionCompany`
-  MODIFY `conComID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `conComID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `fund`
@@ -397,19 +401,19 @@ ALTER TABLE `fundRaise`
 -- AUTO_INCREMENT for table `infoProvider`
 --
 ALTER TABLE `infoProvider`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `organizationalDonor`
 --
 ALTER TABLE `organizationalDonor`
-  MODIFY `orgDonorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `orgDonorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `personalDonor`
 --
 ALTER TABLE `personalDonor`
-  MODIFY `donorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `donorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `project`
@@ -421,7 +425,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT for table `waterSupplyIssue`
 --
 ALTER TABLE `waterSupplyIssue`
-  MODIFY `issueID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `issueID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
