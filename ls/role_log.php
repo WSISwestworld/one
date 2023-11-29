@@ -8,7 +8,7 @@
 
     <title>WSIS | Login</title>
 
-    <link rel="stylesheet" href="login_styles.css">
+    <link rel="stylesheet" href="signup_styles.css">
 </head>
 
 <body>
