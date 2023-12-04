@@ -14,6 +14,7 @@
 <body>
     <!--head-->
     <div class="header">
+        //logo
         <img src="../../../waterDropLogo.png"  height="90px" width="640px" alt="Logo" class="center">
     </div>
 
