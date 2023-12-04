@@ -4,17 +4,31 @@ $user_province = $_SESSION['Province'];
 
 ?>
 
-<h3 style="text-align: center; color: #187efa;">Complaint form</h3>
+<html>
+    <head>
+        <style>
+    body {
+            background-color:rgba(255, 255, 255, 0.7);
+            background-image: url(https://www.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-11-full.jpg); 
+            background-size: cover; /* Adjusts the background image size */
+            background-repeat: no-repeat; /* Prevents the background image from repeating */
+        }
+        </style>
+    </head>
+        <body>
 
-<table class="container">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+<h3 style="text-align: center;font-size:28px; padding:0px; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Complaint Form</h3>
+
+
+<!--<table class="container" style="margin: 20px auto; border-collapse: collapse; width: 80%; max-width: 600px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);>-->
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" style="padding: 20px;">
         <tr>
             <td>
                 <label for="fname">First Name</label>
                 <input type="text" id="fname" name="firstname" value=<?php echo $_SESSION['FName']; ?> disabled>
             </td>
             <td>
-                <label for="lname">Last Name</label>
+                <label for="lname" style="padding: 20px;" >Last Name</label>
                 <input type="text" id="lname" name="lastname" value=<?php echo $_SESSION['LName']; ?> disabled>
             </td>
         </tr>
@@ -147,7 +161,7 @@ $user_province = $_SESSION['Province'];
             </td>
             <td>
                 <label for="duration">How long did you facing the problem?<br>(In months)</label>
-                <input type="number" id="duration" name="duration" min="1" max="240">
+                <input type="number" id="duration" name="duration" min="1" max="240"><br><br>
             </td>
             <td>
                 <span class="error">* <?php echo $durationErr; ?></span>
@@ -177,8 +191,17 @@ $user_province = $_SESSION['Province'];
         </tr>
         <tr>
             <td>
-                <input type="submit" value="Submit">
+            <input type="submit" value="Submit"
+    style="padding: 12px 24px; font-size: 16px; background-color: #0dbaff; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;"
+    onmouseover="this.style.backgroundColor='#2ad4ff'"
+    onmouseout="this.style.backgroundColor='#0dbaff'"
+>
+
+            
+
             </td>
         </tr>
     </form>
 </table>
+                </body>
+                </html>
