@@ -48,6 +48,7 @@
                     <?php } ?>
 
                     <br>
+                    //submit
                     <input type="submit" value="LogIn">
                 </form>
             </div>
