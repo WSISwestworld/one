@@ -14,7 +14,7 @@
 <body>
     <!--head-->
     <div class="header">
-        <img src="../../../waterDropLogo.png" class="logo" height="90px" width="640px" alt="Logo" class="center">
+        <img src="../../../waterDropLogo.png"  height="90px" width="640px" alt="Logo" class="center">
     </div>
 
     <div class="content">
