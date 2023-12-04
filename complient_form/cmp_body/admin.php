@@ -87,20 +87,4 @@
                 <span class="error">* <?php echo $descriptionErr; ?></span>
             </td>
             <td>
-                <label for="status">Status</label>
-                <select name="issueStatus">
-                    <option value="Pending..">Pending..</option>
-                    <option value="Verified">Verified</option>
-                    <option value="Ignored">Ignored</option>
-                    <option value="Further investigation required">Further investigation required</option>
-                </select>
-            </td>
-
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" value="Submit">
-            </td>
-        </tr>
-    </form>
-</table>
+                
