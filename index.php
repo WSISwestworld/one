@@ -25,7 +25,7 @@ $fundraise_result = $server_conn->query($sql_fundraise);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
     <style>
-        /*logo align*/
+        logo align*
         .center {
             display: block;
             margin-left: auto;
@@ -38,7 +38,7 @@ $fundraise_result = $server_conn->query($sql_fundraise);
 
     <!--head-->
     <div class="header">
-        <img src="waterDropLogo.png" height="90px" width="640px" alt="Logo" class="center">
+        <img src="waterDropLogo.png" class="" height="90px" width="640px" alt="Logo" class="center">
     </div>
 
 
