@@ -38,7 +38,7 @@ $fundraise_result = $server_conn->query($sql_fundraise);
 
     <!--head-->
     <div class="header">
-        <img src="waterDropLogo.png" class="" height="90px" width="640px" alt="Logo" class="center">
+        <img src="waterDropLogo.png" class="button1" height="90px" width="640px" alt="Logo" class="center">
     </div>
 
 
