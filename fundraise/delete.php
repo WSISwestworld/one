@@ -16,12 +16,4 @@ if (isset($_GET['id'])) {
 
         header('Location: fundraise.php');
 
-    } else {
-
-        echo "Error:" . $sql_del . "<br>" . $server_conn->error;
-
-    }
-
-}
-
-?>
+    
