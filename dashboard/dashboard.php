@@ -11,12 +11,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body style="background-image: url(https://cdn.wallpapersafari.com/5/84/Q3fZY6.jpg); 
+    background-size: cover;
+    background-position: center;"
+>
 
     <!--head-->
     <div class="header">
         <img src="../waterDropLogo.png" height="90px" width="640px" alt="Logo">
     </div>
+    
 
     <?php
 
@@ -83,15 +87,6 @@
                     </div>
                 </div>
 
-                <div class="dropdown">
-                    <button class="help">Help
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Q & A</a>
-                        <a href="#">About Us</a>
-                    </div>
-                </div>
-
                 <div class="user_log">
                     <div class="dropdown">
                         <img class="" src="../images/user-icon.png" alt="user_icon">
@@ -117,6 +112,29 @@
 
             </div>
         </div>
+
+        <div class="middle-section">
+        
+        <div class="banner-text">
+            <b><i>Welcome to Your Dashboard!</b></i>
+        </div>
+    </div>
+
+    <div class="vertical-box" style="height: 20vh;
+  background-color: #00738e; 
+  color: #fff; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;">
+        <p class="message" style="font-size: 24px;
+  padding: 20px;">Manage Everything by navigating the Navigation Bar!!</p>
+    </div>
+
+    <br>
+    <br>
+
+    
 
         <div class="content">
 
@@ -186,15 +204,6 @@
                     </div>
                 </div>
 
-                <div class="dropdown">
-                    <button class="help">Help
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Q & A</a>
-                        <a href="#">About Us</a>
-                    </div>
-                </div>
-
                 <div class="user_log">
                     <div class="dropdown">
                         <img class="" src="../images/user-icon.png" alt="user_icon">
@@ -221,7 +230,34 @@
             </div>
         </div>
 
+        
+        <div class="middle-section">
+        
+        <div class="banner-text">
+            <b><i>Welcome to Your Dashboard!</b></i>
+        </div>
+    </div>
+
+    <div class="vertical-box" style="height: 20vh;
+  background-color: #00738e; 
+  color: #fff; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;">
+        <p class="message" style="font-size: 24px;
+  padding: 20px;">1.Search for water Supply Issues<br>
+  2.View your projects.<br>
+3.View all the projects</p>
+    </div>
+
+    <br>
+    <br>
+        
+
         <div class="content">
+
+        
 
             <h1>Role: Construction Comany.</h1>
             <br>
@@ -263,17 +299,6 @@
 
                 <a href="../complient_form/complient.php">Water Supply Issues</a>
 
-                <a href="../funds/funds.php">Funds</a>
-
-                <div class="dropdown">
-                    <button class="help">Help
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Q & A</a>
-                        <a href="#">About Us</a>
-                    </div>
-                </div>
-
                 <div class="user_log">
                     <div class="dropdown">
                         <img class="" src="../images/user-icon.png" alt="user_icon">
@@ -300,7 +325,30 @@
             </div>
         </div>
 
+        <div class="middle-section">
+        
+        <div class="banner-text">
+            <b><i>Welcome to Your Dashboard!</b></i>
+        </div>
+    </div>
+
+    <div class="vertical-box" style="height: 20vh;
+  background-color: #00738e; 
+  color: #fff; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;">
+        <p class="message" style="font-size: 24px;
+  padding: 20px;">You can visit water supply issues and fill out the complaint form.</p>
+    </div>
+
+    <br>
+    <br>
+
         <div class="content">
+
+        
 
             <h1>Role: Information Provider.</h1>
             <br>
@@ -354,15 +402,6 @@
 
                 <a href="../funds/funds.php">Funds</a>
 
-                <div class="dropdown">
-                    <button class="help">Help
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Q & A</a>
-                        <a href="#">About Us</a>
-                    </div>
-                </div>
-
                 <div class="user_log">
                     <div class="dropdown">
                         <img class="" src="../images/user-icon.png" alt="user_icon">
@@ -388,6 +427,18 @@
 
             </div>
         </div>
+
+        <div class="middle-section">
+        
+        <div class="banner-text">
+            <b><i>Welcome to Your Dashboard!</b></i>
+        </div>
+    </div>
+
+    
+
+    <br>
+    <br>
 
         <div class="content">
 
@@ -444,15 +495,6 @@
                     </div>
                 </div>
 
-                <div class="dropdown">
-                    <button class="help">Help
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Q & A</a>
-                        <a href="#">About Us</a>
-                    </div>
-                </div>
-
                 <div class="user_log">
                     <div class="dropdown">
                         <img class="" src="../images/user-icon.png" alt="user_icon">
@@ -479,6 +521,13 @@
             </div>
         </div>
 
+
+        <div class="middle-section">
+        
+        <div class="banner-text">
+            <b><i>Welcome to Your Dashboard!</b></i>
+        </div>
+    </div>
         <div class="content">
 
             <h1>Role: Personal Donor.</h1>
