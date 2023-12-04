@@ -47,7 +47,7 @@ $fundraise_result = $server_conn->query($sql_fundraise);
     </a>
 
     <a href="ls/role_sign.php">
-        <img src="images/reg_btn.png" height="20%" width="20%" alt="Login_btn">
+        <img src="images/reg_btn.png" class="button1" height="20%" width="20%" alt="Login_btn">
     </a>
 
 
